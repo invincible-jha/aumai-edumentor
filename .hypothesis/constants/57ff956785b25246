@@ -1,0 +1,4 @@
+# file: M:\Project DarkMatter\workspace\aumai-edumentor\src\aumai_edumentor\cli.py
+# hypothesis_version: 6.151.9
+
+[150, 8000, '\nAREAS TO IMPROVE:', '\nAVAILABLE SUBJECTS:', '--answers', '--host', '--learner', '--learner-id', '--port', '--subject', '...', '0.0.0.0', '=', 'Excellent', 'Good', 'Host to bind to', 'Learner identifier', 'Needs Improvement', 'Port to serve on', '__main__', 'answers_file', 'assess', 'learner_file', 'path', 'serve', 'subjects']

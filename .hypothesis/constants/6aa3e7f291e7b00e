@@ -1,0 +1,4 @@
+# file: M:\Project DarkMatter\workspace\aumai-edumentor\src\aumai_edumentor\models.py
+# hypothesis_version: 6.151.9
+
+[0.0, 100.0, 'AssessmentResult', 'Current grade (1-12)', 'Learner identifier', "Learner's name", 'LearnerProfile', 'LearningContent', 'LearningPath', 'Subject assessed', 'Target grade level', 'en', 'visual']

@@ -162,13 +162,24 @@ class AssessmentEngine:
                 areas_to_improve=["No answers provided — please attempt the assessment."],
             )
 
-        correct_count = sum(1 for a in answers if bool(a.get("correct", False)))
+        def _is_correct(value: object) -> bool:
+            """Evaluate a correct flag that may be a bool or a string representation.
+
+            Handles the case where JSON deserialisation yields the string "false"
+            instead of the boolean False — bool("false") is True in Python, which
+            would incorrectly count wrong answers as correct.
+            """
+            if isinstance(value, str):
+                return value.strip().lower() not in ("false", "0", "no", "")
+            return bool(value)
+
+        correct_count = sum(1 for a in answers if _is_correct(a.get("correct", False)))
         score = round(correct_count / len(answers) * 100, 1)
 
         # Identify topics with wrong answers
         incorrect_topics: list[str] = []
         for answer in answers:
-            if not bool(answer.get("correct", False)):
+            if not _is_correct(answer.get("correct", False)):
                 topic = str(answer.get("topic", subject))
                 if topic not in incorrect_topics:
                     incorrect_topics.append(topic)
